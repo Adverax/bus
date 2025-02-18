@@ -12,11 +12,11 @@ func ExampleBus() {
 	bus.On(
 		ctx,
 		"subject",
-		SubscriberFunc(func(ctx context.Context, notification Notification) {
-			fmt.Println("event:", notification.Subject, notification.Message)
+		SubscriberFunc(func(ctx context.Context, event Event) {
+			fmt.Println("event:", event.Subject, event.Message)
 		}),
 	)
-	bus.Publish(ctx, Notification{
+	bus.Publish(ctx, Event{
 		Subject: "subject",
 		Message: "message",
 	})

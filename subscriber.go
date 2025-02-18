@@ -7,13 +7,13 @@ import (
 
 // Subscriber is abstract subscriber for the event
 type Subscriber interface {
-	Event(ctx context.Context, notification Notification)
+	Event(ctx context.Context, event Event)
 }
 
-type SubscriberFunc func(ctx context.Context, notification Notification)
+type SubscriberFunc func(ctx context.Context, event Event)
 
-func (fn SubscriberFunc) Event(ctx context.Context, notification Notification) {
-	fn(ctx, notification)
+func (fn SubscriberFunc) Event(ctx context.Context, event Event) {
+	fn(ctx, event)
 }
 
 type subscribers []Subscriber

@@ -14,7 +14,7 @@ type Registrar interface {
 
 // Publisher is interface for publishing events
 type Publisher interface {
-	Publish(ctx context.Context, notification Notification)
+	Publish(ctx context.Context, event Event)
 }
 
 type Bus struct {
@@ -67,13 +67,13 @@ func (that *Bus) Off(
 
 func (that *Bus) Publish(
 	ctx context.Context,
-	notification Notification,
+	event Event,
 ) {
-	that.sniffer.Publish(ctx, notification)
+	that.sniffer.Publish(ctx, event)
 
-	ss := that.getSubscribers(notification.Subject)
+	ss := that.getSubscribers(event.Subject)
 	for _, subscriber := range ss {
-		go subscriber.Event(ctx, notification)
+		go subscriber.Event(ctx, event)
 	}
 }
 

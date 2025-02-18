@@ -10,7 +10,7 @@ import (
 type Sniffer interface {
 	Asserted(ctx context.Context, subject string, subscriber Subscriber)
 	Retracted(ctx context.Context, subject string, subscriber Subscriber)
-	Publish(ctx context.Context, notification Notification)
+	Publish(ctx context.Context, notification Event)
 }
 
 type publisherSniffer struct {
@@ -25,7 +25,7 @@ func (that *publisherSniffer) Retracted(ctx context.Context, subject string, sub
 	that.logger.Debugf(ctx, "BUS SUBSCRIBER RETRACTED: %s", subject)
 }
 
-func (that *publisherSniffer) Publish(ctx context.Context, notification Notification) {
+func (that *publisherSniffer) Publish(ctx context.Context, notification Event) {
 	fields := log.Fields{
 		log.FieldKeyEntity:  "BUS",
 		log.FieldKeyAction:  "<<",
@@ -55,4 +55,4 @@ func (that *dummyPublisherSniffer) Asserted(ctx context.Context, subject string,
 func (that *dummyPublisherSniffer) Retracted(ctx context.Context, subject string, subscriber Subscriber) {
 }
 
-func (that *dummyPublisherSniffer) Publish(ctx context.Context, notification Notification) {}
+func (that *dummyPublisherSniffer) Publish(ctx context.Context, event Event) {}

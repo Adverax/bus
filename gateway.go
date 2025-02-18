@@ -15,11 +15,11 @@ type Gateway struct {
 
 func (that *Gateway) Event(
 	ctx context.Context,
-	notification Notification,
+	event Event,
 ) {
-	if that.filter.IsMatch(notification.Subject) {
-		notification.Subject = that.mute(notification.Subject)
-		that.publisher.Publish(ctx, notification)
+	if that.filter.IsMatch(event.Subject) {
+		event.Subject = that.mute(event.Subject)
+		that.publisher.Publish(ctx, event)
 	}
 }
 
