@@ -15,7 +15,7 @@ func (fn HandlerFunc[T]) Execute(ctx context.Context, data T) error {
 }
 
 func Subsrcibe[T any](ctx context.Context, bus *Bus, event string, handler Handler[T]) {
-	bus.On(ctx, event, SubscriberFunc(func(ctx context.Context, event Event) {
+	bus.On(ctx, event, NewSubscriber(func(ctx context.Context, event Event) {
 		if data, ok := event.Message.(T); ok {
 			err := handler.Execute(ctx, data)
 			if err != nil {

@@ -8,8 +8,8 @@ import (
 )
 
 type Event struct {
-	Subject string      `json:"subject"`           // Название темы
-	Message interface{} `json:"message,omitempty"` // Тело сообщения
+	Subject string      `json:"subject"`
+	Message interface{} `json:"message,omitempty"`
 }
 
 func (that *Event) String() string {
