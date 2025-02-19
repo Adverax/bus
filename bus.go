@@ -2,9 +2,12 @@ package bus
 
 import (
 	"context"
+	"github.com/adverax/events"
 	"github.com/adverax/log"
 	"sync"
 )
+
+type Event = events.Event
 
 // Registrar is interface of registrar event handlers.
 type Registrar interface {
