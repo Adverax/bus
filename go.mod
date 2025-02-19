@@ -3,7 +3,7 @@ module github.com/adverax/bus
 go 1.23.4
 
 require (
-	github.com/adverax/events v1.0.0
+	github.com/adverax/events v1.0.1
 	github.com/adverax/log v1.0.11
 )
 

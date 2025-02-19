@@ -76,7 +76,7 @@ func (that *Bus) Publish(
 
 	ss := that.getSubscribers(event.Subject)
 	for _, subscriber := range ss {
-		go subscriber.Event(ctx, event)
+		go subscriber.HandleEvent(ctx, event)
 	}
 }
 

@@ -12,7 +12,7 @@ func ExampleBus() {
 	bus.On(
 		ctx,
 		"subject",
-		NewSubscriber(func(ctx context.Context, event Event) {
+		SubscriberFunc(func(ctx context.Context, event Event) {
 			fmt.Println("event:", event.Subject, event.Message)
 		}),
 	)

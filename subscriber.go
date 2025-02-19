@@ -1,27 +1,12 @@
 package bus
 
 import (
-	"context"
+	"github.com/adverax/events"
 )
 
-// Subscriber is abstract subscriber for the event
-type Subscriber interface {
-	Event(ctx context.Context, event Event)
-}
+type Subscriber = events.Subscriber
 
-type subscriber struct {
-	action func(ctx context.Context, event Event)
-}
-
-func (that *subscriber) Event(ctx context.Context, event Event) {
-	that.action(ctx, event)
-}
-
-func NewSubscriber(action func(ctx context.Context, event Event)) Subscriber {
-	return &subscriber{
-		action: action,
-	}
-}
+type SubscriberFunc = events.SubscriberFunc
 
 type subscribers []Subscriber
 

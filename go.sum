@@ -1,7 +1,7 @@
 github.com/adverax/core v1.0.0 h1:Q8Ejji7JtBx0XXT2jtrko89XU3QhT5A+6LtWycnE7yc=
 github.com/adverax/core v1.0.0/go.mod h1:ZKldTxBhNDIq9RWV1TqfoZ1n0XvfHG6sSdUbxnZq/Ro=
-github.com/adverax/events v1.0.0 h1:+cwRWXru74A7Skk0eUETj4wsR9LR2mDn68jB7h9RNv0=
-github.com/adverax/events v1.0.0/go.mod h1:xG5lxHpSV361+NCzRp7sGjmxELnue2CrEkutRr4vWWg=
+github.com/adverax/events v1.0.1 h1:oubnOCNC41ZagI5xxit1WJ0JFIf90ePS50hkF4oTbn4=
+github.com/adverax/events v1.0.1/go.mod h1:xG5lxHpSV361+NCzRp7sGjmxELnue2CrEkutRr4vWWg=
 github.com/adverax/log v1.0.11 h1:zYkOio0hy9/8tjt6E5JzuOfqlbS7wmhaQq/C/K66c1I=
 github.com/adverax/log v1.0.11/go.mod h1:+ZAdNj9L5x1gTzN86ITnWRBkAMfeaowoyc1Kuc/qZIY=
 github.com/adverax/types v1.0.0 h1:mz1T8247syt5hte59/LaeZndgboZqWz2Q7UmR7Nen7o=
