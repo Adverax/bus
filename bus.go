@@ -74,20 +74,17 @@ func (that *Bus) Publish(
 ) {
 	that.sniffer.Publish(ctx, event)
 
-	ss := that.getSubscribers(event.Subject)
-	for _, subscriber := range ss {
-		go subscriber.HandleEvent(ctx, event)
-	}
-}
-
-func (that *Bus) getSubscribers(subject string) subscribers {
 	that.Lock()
 	defer that.Unlock()
 
-	ss := that.subscribers[subject]
-	result := make(subscribers, len(ss))
-	copy(result, ss)
-	return result
+	ss := that.subscribers[event.Subject]
+	if ss == nil {
+		return
+	}
+
+	for _, subscriber := range ss {
+		go subscriber.HandleEvent(ctx, event)
+	}
 }
 
 // New is constructor for creating instance of the publisher
